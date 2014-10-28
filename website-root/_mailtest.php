@@ -7,12 +7,12 @@
 
 eMail Test Document 4
 <?php
-$to      = 'Dave Davies <davedaviesgsc@yahoo.ca>';
+$to      = 'Studio Tour <saltspringstudiotour@gmail.com>';
 $subject = 'the subject4';
 $message = 'hello4';
-$headers = 'From: Kelly <davegsc@gmail.com>';
-$headers = 'To: Mary <davegsc@gmail.com>';
-    'Reply-To: Mitch <davegsc@gmail.com>' . "\r\n" .
+$headers = 'From: Studio Tour <saltspringstudiotour@gmail.com>';
+$headers = 'To: Studio Tour <saltspringstudiotour@gmail.com>';
+    'Reply-To: Studio Tour <saltspringstudiotour@gmail.com>' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
 mail($to, $subject, $message, $headers);

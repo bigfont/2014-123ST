@@ -1,32 +1,22 @@
+<!--
+  This page appears to be associated with the public facing pages.
+-->
+
 <?php
 	session_start();
-	
-	
-	
+  
+  $db = "studioWP"; 
+  $host = "us-cdbr-azure-west-a.cloudapp.net";
+  $user = "b5fb2dd924598a";
+  $pass = "7961155f";
 		
-	$db = "ssstudio_studio";  //Localhost
-	$host = "74.53.185.166";
-	$user = "ssstudio_studio";
-	$pass = "sh33p";
-	
-	$db = "ssstudio_studio";  //Localhost
-	$host = "localhost";
-	$user = "ssstudio_studio";
-	$pass = "sh33p";
-	
-	
-
 	$api = "ABQIAAAARF2-rsGK-9SnmPUa4Z9BVhSw_XUxS-1rSleO7ioMqdxOoBDP5RTZ04X1cFPYx3B3Ro84BuO_6yjmRA"; //192.168.1.104
 	$api = "ABQIAAAARF2-rsGK-9SnmPUa4Z9BVhSeE3pgkb2db23TzgDkBn5OBFKbYBSEcQUhAlg7ibm5Bjf02PXhf4qRdg"; //Webmechanic
 	$api = "ABQIAAAARF2-rsGK-9SnmPUa4Z9BVhTyPkaBe4qi3DVZ-qQx_QRDwHTmvhSsJRkOVln4HXeGNZboUU0fCnxvhw"; //Host Gator Temp
-	$api = "ABQIAAAARF2-rsGK-9SnmPUa4Z9BVhRGkzzA6C0Hd933s8y5YXSuhnqpQRTk2CXx4VdhTTi8_OixjEV1tPy3Cw"; // StudioTour.com
+	$api = "ABQIAAAARF2-rsGK-9SnmPUa4Z9BVhRGkzzA6C0Hd933s8y5YXSuhnqpQRTk2CXx4VdhTTi8_OixjEV1tPy3Cw"; //StudioTour.com
 	$conn = mysql_connect($host,$user,$pass) or die(mysql_error());
-	$d = mysql_select_db($db) or die(mysql_error());
+	$d = mysql_select_db($db); // or die(mysql_error());
 	
-
-
-
-
 function admin_logged_in() {
 
 	if (isset($_SESSION['admin_id'])) {
