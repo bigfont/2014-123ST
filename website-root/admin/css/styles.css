@@ -1,0 +1,214 @@
+body {
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		position: relative;
+		font-family: verdana;
+		font-size: 12px;
+		background-color: #bbb;
+		color: #333;
+}
+
+#container {
+		width: 960px;
+		margin: 60px auto 0 auto;
+		text-align: left;
+		border: 1px solid green;
+		position: relative;
+		background-color: #fff;
+		
+}
+
+td { padding-bottom: 2px; }
+input { border: 1px solid #aaa; padding: 3px; font-family: "Trebuchet MS"; font-size: 13px;	}
+file { border: 1px solid red; }
+
+#menu h2 {
+	padding: 0;
+	margin: 0;
+	}
+
+#loading_box {
+width: 120px;
+height: 16px;
+background-color: #c00;
+color: #fff;
+padding: 2px;
+text-align: center;
+position: fixed;
+z-index: 10000;
+top: 0px;
+right: 0px;
+font-size: 12px;
+border-bottom: 2px solid #bbb;
+border-left: 2px solid #bbb;
+}
+#menu {
+		position: relative;
+		width: 940px;
+		text-align: center;'
+		height: 20px;
+		padding: 10px;
+		background-color: #a00;
+		border-bottom: 1px solid green;
+		color: #fff;
+		}
+		
+#menu a:link    { color:#ddd; text-decoration:none; }
+#menu a:visited { color:#ddd; text-decoration:none; }
+#menu a:hover   { color:#fff; text-decoration:none; }
+#menu a:active  { color:#ddd; text-decoration:none; }
+
+		
+a:link    { color:#900; text-decoration:underline; }
+a:visited    { color:#900; text-decoration:underline; }
+a:active    { color:#900; text-decoration:underline; }
+a:hover    { color:#f00; text-decoration:underline; }
+
+a.edit:link { color: #00a; text-decoration: underline; }
+a.edit:visited { color: #00a; text-decoration: underline; }
+a.edit:active { color: #00a; text-decoration: underline; }
+a.edit:hover { color: #00f; text-decoration: underline; }
+.redText {
+		color: #b00;
+		}
+		
+.greenText {
+		color: #ff0;
+		}
+		
+#content {
+		width: 920px;
+		padding: 20px;
+		}
+		
+th {
+	border-bottom:1px solid #555;
+	}
+	
+.message {
+		color: #55bb55;
+		}
+		
+	
+.messageRed {
+		color: #bb5555;
+		}
+		
+.thumb {
+	width: 120px;
+	padding: 10px;
+	float: left;
+	border: 1px solid #555;
+	margin: 10px;
+	}
+	
+.model_box {
+	padding: 10px;
+	width: 135px;
+	float: left;
+	text-align: center;
+	margin-right: 20px;
+	color: #000;
+	background-color: #fff;
+	}
+	
+	.gallery_box {
+	padding: 10px;
+	width: 200px;
+	float: left;
+	text-align: center;
+	margin-right: 20px;
+	color: #000;
+	background-color: #fff;
+	}
+	
+
+.drag_item {
+	border: 1px solid #f9ce21;
+	background-color: #c1ff85;
+	padding: 5px 10px 5px 10px;
+	margin: 3px;
+	cursor: move;
+	}
+	
+.drag_image {
+	border: 1px solid #900;
+	background-color: #eee;
+	padding: 10px 10px 0px 10px;
+	margin:12px;
+	width: 130px;
+	height: 200px;
+	cursor: move;
+	float: left;
+	text-align: center;
+	}
+	
+	
+.drag_image2 {
+	border: 1px solid #900;
+	background-color: #eee;
+	padding: 5px 10px 0px 10px;
+	margin:12px;
+	width: 100px;
+	height: 130px;
+	cursor: move;
+	float: left;
+	text-align: center;
+	}
+	
+#loader {
+	position: fixed; 
+	width: 960px; 
+	top: 10px; 
+	height: 30px;
+	text-align: center;
+	font-size: 15px;
+	padding-top: 6px;
+	color: #ff0;
+	}
+	
+.tour_number {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #a00;
+	padding: 0px;
+	width: 100%;
+	border-bottom: 1px solid #a00;
+	color: #fff;
+	}
+	
+#accuracy {
+	position: absolute;
+	top: 70px;
+	right: 20px;
+	}
+	
+#latlong {
+	position: absolute;
+	top: 70px;
+	right: 290px;
+	}
+	
+.slideshow_item_wrap {
+	float: left;
+	width: 440px;
+	margin: 4px;
+	padding: 5px;
+	background-color: #eee;
+	border: 1px solid #a00;
+	}
+	
+.slideshow_item_left {
+	float: left;
+	}
+	
+.slideshow_item_right {
+	float: right;
+	margin-right: 20px;
+	}
+	
+.artist_opts img {
+	cursor: pointer;
+	}
