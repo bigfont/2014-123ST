@@ -1,0 +1,2 @@
+[21-May-2013 17:01:24] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Too many connections in /home/ssstudio/public_html/inc/inc.php on line 23
+[31-May-2013 14:39:53] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Too many connections in /home/ssstudio/public_html/inc/inc.php on line 23
