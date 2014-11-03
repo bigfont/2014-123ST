@@ -1,0 +1,9 @@
+ErrorDocument 404 http://www.saltspringstudiotour.com/404.php
+RewriteEngine On
+RewriteRule ^views/([^/\.]+)/?$ views.php?artist=$1 [L]
+
+<Files passwords.php>
+
+Order Allow, Deny
+Deny from all
+</Files>

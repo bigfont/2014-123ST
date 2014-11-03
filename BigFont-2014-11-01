@@ -1,0 +1,7 @@
+
+# Secure Web Pages
+
+## /admin/index.php
+
+- change ST_Admin password
+- change admin_id session variable
