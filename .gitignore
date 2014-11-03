@@ -1,6 +1,9 @@
 
 passwords.php
 *.timthumb.txt
-*/membership/media/*.jpg
 *.zip
 *.bak
+
+*.jpg
+*/membership/media/*.jpg
+
