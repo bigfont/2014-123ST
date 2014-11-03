@@ -1,0 +1,1 @@
+  <!--[if lt IE 7]>  <meta http-equiv="refresh" content="0;url=ie6.php"> <![endif]--> 

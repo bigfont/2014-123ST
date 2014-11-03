@@ -1,0 +1,1 @@
+/* This is for any additional functionality at page load in the document ready function */
