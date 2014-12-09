@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<entries>
+  <entry time="2014-11-18T06:23:38.5539122Z" id="03386640-9dc5-48d0-984f-214c7e42d63b" type="0">
+    <message>Updating submodules.</message>
+  </entry>
+  <entry time="2014-11-18T06:23:38.6181339Z" id="5fe163bb-567a-42a7-9833-a627b875d64e" type="0">
+    <message>Preparing deployment for commit id 'd18d4ce2e4'.</message>
+  </entry>
+  <entry time="2014-11-18T06:23:38.8151564Z" id="234916c8-82eb-4fd4-a5bc-801af58f87da" type="0">
+    <message>Running custom deployment command...</message>
+  </entry>
+  <entry time="2014-11-18T06:23:38.893285Z" id="a8e79fb6-1780-4be4-a5c8-2818347604f4" type="0">
+    <message>Running deployment command...</message>
+    <entry time="2014-11-18T06:23:38.9089021Z" id="48afa3de-61b2-4d81-998d-a3bca5ec9ff0" type="0">
+      <message>Command: deploy.cmd</message>
+    </entry>
+    <entry time="2014-11-18T06:23:39.033898Z" id="58be71bb-0df5-4cca-a271-3b24d3b8af85" type="0">
+      <message>"Hello"</message>
+    </entry>
+  </entry>
+  <entry time="2014-11-18T06:23:39.1432665Z" id="b3369123-270b-4198-9aca-654162c14425" type="0">
+    <message>Deployment successful.</message>
+  </entry>
+</entries>
