@@ -1,9 +1,18 @@
-<!--
-  This page appears to be associated with the public facing pages.
--->
-
 <?php
 	session_start();
+	
+	/*
+	$db = "ssstudio_studio";  //Localhost
+	$host = "gator4021.hostgator.com";
+	$user = "ssstudio_studio";
+	$pass = "yD7!HR33WMwj";
+
+  
+	$db = "ssstudio_studio";  //Localhost
+	$host = "gator4021.hostgator.com";
+	$user = "ssstudio_studio";
+	$pass = "yD7!HR33WMwj";
+  */
   
   $db = "studioWP"; 
   $host = "us-cdbr-azure-west-a.cloudapp.net";

@@ -1,8 +1,9 @@
 <?php
 
-// membership/index.php
-
 require_once('inc/connect.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/passwords.php');
+
+$adminVal = -1;
 
 if (isset($_GET['logout'])) {
 	unset($_SESSION['profile']);
@@ -17,15 +18,12 @@ if (isset($_GET['logout_admin'])) {
 	session_destroy();
 }
 
-$profile = "profile";
-$password = "password";
-
 if (isset($_POST['profile'])) {
+	
 	$profile = $_POST['profile'];
 	$password = $_POST['password'];
 	
-	if ($profile == 'admin' && $password = 'sh33p!') {
-		//Admin has logged in
+	if ($profile == $adminVal && $password == $PASSWORD_ADMIN) {
 		$_SESSION['admin'] = true;
 		header('location: admin.php');
 	}	
@@ -33,7 +31,7 @@ if (isset($_POST['profile'])) {
 	$sql = "select * from profiles where id = '$profile' && password = '$password'";
 	$result = mysql_query($sql);
 	if (mysql_num_rows($result) > 0) {
-		//We've found the user, log them in.
+		//we've found the user, log them in.
 		$_SESSION['member'] = $profile;
 		header("location: manage.php");
 	}
@@ -66,7 +64,7 @@ $profiles = getProfiles();
                              
       <h2 class="mb0">Salt Spring Studio Tour Registration</h2>			  
       <p>We're in the process of making changes to the website.</p>            
-      <p>We're also just learning where the previous website programmer put everything, so please be patient!</p>
+      <p>We're also just learning where the previous website programmer put everything; please be patient!</p>
       <p>
         Please log in below to manage your Studio Tour listing.
       </p>
@@ -90,9 +88,10 @@ $profiles = getProfiles();
               </option>
 
               <?php } ?>
-              <option value="" disabled='disabled'></option>
-              <option value='admin'>Administration</option>
-            </select>
+			  
+              <option value='<?= $adminVal ?>'>Administration</option>
+            
+			</select>
             <!--controls-->
           </div>
           <!--control-group-->
@@ -111,8 +110,6 @@ $profiles = getProfiles();
         </div>
 
       </form>
-
-
 
       <!--container-->
     </div>
