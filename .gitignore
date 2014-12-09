@@ -3,3 +3,6 @@
 *.jpg
 *.png
 *.gif
+*\passwords.php
+*\proof
+*\transfer
