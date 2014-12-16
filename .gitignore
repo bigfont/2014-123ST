@@ -1,9 +1,18 @@
-# ignore studio tour images
 
+# studio tour images
 *.jpg
 *.png
 *.gif
+
+# private data
 *\passwords.php
+
+# massive files
 *\proof
 *\transfer
 \mysql_backups
+
+# other cruft
+*.timthumb.txt
+*.zip
+*.bak
