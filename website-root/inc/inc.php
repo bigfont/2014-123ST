@@ -1,23 +1,14 @@
 <?php
-	session_start();
-	
-	/*
-	$db = "ssstudio_studio";  //Localhost
-	$host = "gator4021.hostgator.com";
-	$user = "ssstudio_studio";
-	$pass = "yD7!HR33WMwj";
 
-  
-	$db = "ssstudio_studio";  //Localhost
-	$host = "gator4021.hostgator.com";
-	$user = "ssstudio_studio";
-	$pass = "yD7!HR33WMwj";
-  */
+require_once ($_SERVER["DOCUMENT_ROOT"] . '/passwords.php');
+
+
+	session_start();
   
   $db = "studioWP"; 
-  $host = "us-cdbr-azure-west-a.cloudapp.net";
-  $user = "b5fb2dd924598a";
-  $pass = "7961155f";
+$host = $DATABASE_HOST;
+$user = $DATABASE_USER;
+$pass = $DATABASE_PASSWORD;
 		
 	$api = "ABQIAAAARF2-rsGK-9SnmPUa4Z9BVhSw_XUxS-1rSleO7ioMqdxOoBDP5RTZ04X1cFPYx3B3Ro84BuO_6yjmRA"; //192.168.1.104
 	$api = "ABQIAAAARF2-rsGK-9SnmPUa4Z9BVhSeE3pgkb2db23TzgDkBn5OBFKbYBSEcQUhAlg7ibm5Bjf02PXhf4qRdg"; //Webmechanic
