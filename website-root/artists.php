@@ -99,7 +99,7 @@ $(window).load(function () {
 		<select name="artist" id="artist_list" style="width: 600px;" onchange="goToUrl(this.value);">
 			<option value="false">Click on an artist below or select a studio from this list...</option>
 			<?php while ($r = mysql_fetch_assoc($options)) { ?>
-			<option title="images/sheep/<?=$r['tour_number']?>.png" value="<?=$r['id']?>"> &nbsp;&nbsp;&nbsp;<?=stripslashes($r['name'])?> &mdash; ?></option>
+			<option title="images/sheep/<?=$r['tour_number']?>.png" value="<?=$r['id']?>"> &nbsp;&nbsp;&nbsp;<?=stripslashes($r['name'])?></option>
 			<?php } ?>
 		</select><input type="submit" id="artist_list_submit" name="submit" value="Meet the Artist" style="display: inline;" />
 						<div style="clear: both;"></div>
