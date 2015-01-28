@@ -38,38 +38,37 @@ $(function() {
 			<?php require_once("inc/menu.php"); ?>
 			<!--menu--></div>
 		<!--header--></div>
-	
-	
-		
+
+
+
 		<div id="content">
-		
+
 			<div id="homegrid">
 				<div id="grid">
 					<img src="images/home/2014/1.jpg" class="homegrid_image right10" alt="" />
 					<img src="images/home/2014/2.jpg" class="homegrid_image left10 right10" alt="" />
 					<img src="images/home/2014/3.jpg" class="homegrid_image left10 right10" alt="" />
 					<img src="images/home/2014/4.jpg" class="homegrid_image left10" alt="" />
-					
+
 					<img src="images/home/2014/5.jpg" class="homegrid_image right10" alt="" />
 					<img src="images/home/2014/6.jpg" class="homegrid_image left10 right10" alt="" />
 					<img src="images/home/2014/7.jpg" class="homegrid_image left10 right10" alt="" />
 					<img src="images/home/2014/8.jpg" class="homegrid_image left10" alt="" />
-					
+
 					<img src="images/home/2014/9.jpg" class="homegrid_image left10" alt="" />
 					<img src="images/home/2014/10.jpg" class="homegrid_image left10 right10" alt="" />
-					<img src="images/home/2014/11.jpg" class="homegrid_image left10 right10" alt="" />
-					<img src="images/home/2014/12.jpg" class="homegrid_image left10" alt="" />
-					
+					<img src="images/home/2014/11.jpg" class="homegrid_image left10 right10" alt="" />					
+
 					<div class="clear"></div>
-					
+
 					<center>The Salt Spring Studio Tour invites  you to <br />"Meet the Artists and Experience the Creativity" of our <?=artistCount()?> working studios.</center>
 				<!--grid--></div>
 			<!--homegrid--></div>
-		
-		
+
+
 		<!--content--></div>
-		
-	
+
+
 	<!--container--></div>
 <!--wrap--></div>
 
