@@ -68,7 +68,7 @@ function goToUrl(id) {
 		<div id="map_detail">
 
 			<img src="images/mapbook4.jpg" alt="Map Book" id="mapbook" />
-			<a href="pdf/StudioTour2014.pdf" target="_blank">Download Map PDF (2.4MB)</a>
+			<a href="pdf/StudioTour2015.pdf" target="_blank">Download Map PDF (2.4MB)</a>
 			<br />
 			<br />
 			<p>FREE Studio Tour Maps are available at:</p>
