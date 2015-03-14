@@ -1,4 +1,4 @@
-<?php require_once('../inc/inc.php'); 
+<?php require_once('../inc/inc.php');
 admin_only();
 
 
@@ -30,13 +30,13 @@ var map2;
 function startMap() {
 //<![CDATA[
 if (GBrowserIsCompatible()) {
-	
-   
 
 
 
-    
-      // Display the map, with some controls and set the initial location 
+
+
+
+      // Display the map, with some controls and set the initial location
       var map = new GMap2(document.getElementById("map"));
 
       map.addControl(new GLargeMapControl3D());
@@ -54,21 +54,21 @@ if (GBrowserIsCompatible()) {
 						document.getElementById('lat').value = latA;
 					});
     	map2.clearOverlays();
-    	
-     	 map2.addOverlay(marker);
-    
-     
 
-        
-   
+     	 map2.addOverlay(marker);
+
+
+
+
+
 
 
      // map.addControl(new GLargeMapControl3D());
-      	
-    
 
 
-      
+
+
+
     // display a warning if the browser was not compatible
 } else {
       alert("Sorry, the Google Maps API is not compatible with this browser");
@@ -76,14 +76,14 @@ if (GBrowserIsCompatible()) {
 }
 
   //]]>
-  
 
 
-//END LOAD	
+
+//END LOAD
 
 Ajax.Responders.register({
 onCreate : showLoader,
-onComplete : hideLoader			
+onComplete : hideLoader
 });
 
 
@@ -101,7 +101,7 @@ function showLoader() {
 					$('loader').style.backgroundColor = '#0b0';
 		$('loader').innerHTML = 'Done!';
 		}
-		
+
 function hideLoader() {
 
 
@@ -110,11 +110,11 @@ function hideLoader() {
 }
 
 function fetchProperties(address) {
-	
+
 	new Ajax.Request('query.php',
 		{
 			method: 'post',
-			parameters: 
+			parameters:
 				{
 					address: address,
 				},
@@ -122,7 +122,7 @@ function fetchProperties(address) {
 				UpdateProperties(transport);
 			},
 			onFailure: function() {
-				
+
 			}
 		}
 	);
@@ -130,7 +130,7 @@ function fetchProperties(address) {
 
 function UpdateProperties(json_data) {
 	var properties = json_data.responseText.evalJSON();
-	$('lat').value = properties.lat.toFixed(8);	
+	$('lat').value = properties.lat.toFixed(8);
 	$('lng').value = properties.lng.toFixed(8);
 	$('accuracy').innerHTML = 'Geocode Accuracy (1 - 8): <strong>' + properties.accuracy + '</strong>'
 	if (properties.accuracy < 10) {
@@ -148,7 +148,7 @@ function geoCode() {
 
 
 function createMarker(point,html) {
-	
+
 	var iconSheep = new GIcon();
 iconSheep.image = '../images/SheepMarker/image.png';
 iconSheep.printImage = '../images/SheepMarker/printImage.gif';
@@ -163,8 +163,8 @@ iconSheep.infoWindowAnchor = new GPoint(16,0);
 iconSheep.imageMap = [27,0,26,1,28,2,29,3,30,4,30,5,31,6,31,7,31,8,26,9,26,10,26,11,26,12,26,13,25,14,25,15,25,16,24,17,23,18,22,19,22,20,22,21,22,22,22,23,22,24,22,25,2,25,2,24,2,23,2,22,2,21,2,20,2,19,2,18,2,17,3,16,2,15,0,14,0,13,0,12,0,11,0,10,0,9,1,8,2,7,2,6,5,5,6,4,20,3,21,2,23,1,25,0];
 
 
-	
-	
+
+
         var marker = new GMarker(point, {draggable: true, icon:iconSheep});
         return marker;
       }
@@ -184,18 +184,17 @@ function updateMap() {
 						document.getElementById('lat').value = latA;
 					});
     	map2.clearOverlays();
-    	
+
      	 map2.addOverlay(marker);
 
-		
-		
+
+
 }
 
 function validate() {
 		if ($F('name') == '') { alert("Please enter the studio name"); $('name').focus(); return(false) }
 		if ($F('artist') == '') { alert("Please enter the artist's name"); $('artist').focus(); return(false) }
 		if ($F('craft') == '') { alert("Please enter the artist's craft"); $('craft').focus(); return(false) }
-		if ($F('blurb') == '') { alert("Please enter the artist's short blurb"); $('blurb').focus(); return(false) }
 		if ($F('address') == '') { alert("Please enter the artist's Address"); $('address').focus(); return(false) }
 		if ($F('postal_code') == '') { alert("Please enter the artist's Postal Code"); $('postal_code').focus(); return(false) }
 		if ($F('phone') == '') { alert("Please enter the artist's Phone number"); $('phone').focus(); return(false) }
@@ -207,8 +206,8 @@ function validate() {
 		if ($F('off_thu') == '') { alert("Please enter Off Season Thursday Hours"); $('off_thu').focus(); return(false) }
 		if ($F('off_fri') == '') { alert("Please enter Off Season Friday Hours"); $('off_fri').focus(); return(false) }
 		if ($F('off_sat') == '') { alert("Please enter Off Season Saturday Hours"); $('off_sat').focus(); return(false) }
-		
-		
+
+
 		if ($F('peak_sun') == '') { alert("Please enter Peak Season Sunday Hours"); $('peak_sun').focus(); return(false) }
 		if ($F('peak_mon') == '') { alert("Please enter Peak Season Monday Hours"); $('peak_mon').focus(); return(false) }
 		if ($F('peak_tue') == '') { alert("Please enter Peak Season Tuesday Hours"); $('peak_tue').focus(); return(false) }
@@ -216,7 +215,7 @@ function validate() {
 		if ($F('peak_thu') == '') { alert("Please enter Peak Season Thursday Hours"); $('peak_thu').focus(); return(false) }
 		if ($F('peak_fri') == '') { alert("Please enter Peak Season Friday Hours"); $('peak_fri').focus(); return(false) }
 		if ($F('peak_sat') == '') { alert("Please enter Peak Season Saturday Hours"); $('peak_sat').focus(); return(false) }
-		
+
 }
 
 </script>
@@ -225,11 +224,11 @@ function validate() {
 <body onload="startMap();">
 
 	<div id="container">
-	
+
 		<div id="loader" style="display: none;">Working...</div>
-	
+
 	<?php require_once('menu.php'); ?>
-	
+
 		<div id="content" >
 		<h4 class="message"><?php if (isset($message)) { echo $message; } ?></h4>
 		<h3>Add new Artist</h3>
@@ -242,9 +241,9 @@ function validate() {
 					<td>Tour #:</td><td><select name="tour_number">
 										<?php for ($i = 1; $i< 41; $i++) {
 											if (!in_array($i,$available)) { ?>
-											
+
 											<option <?php if (@$_REQUEST['tour_number'] == $i) { echo "selected='selected'";} ?> value="<?=$i?>"><?=$i?></option>
-											
+
 											<?php } else { ?>
 											<option  value="" disabled ='disabled'><?=$i?> (unavailable)</option>
 											<?php }
@@ -261,11 +260,8 @@ function validate() {
 				<tr>
 					<td>Craft:</td><td><input type="text" id="craft" name="craft" size="40" value="<?=@$_POST['craft']?>" /></td>
 				</tr>
-				<tr>
-					<td>Blurb:</td><td><input type="text" id="blurb" name="blurb" size="40" value="<?=@$_POST['blurb']?>" /></td>
-				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-				<tr> 
+				<tr>
 					<td>Address:</td><td><input type="text" id="address" name="address" size="30" /> <input type="submit" name="search" value="Search..." onclick="javascript: geoCode(); return false " style="padding: 2px; "/></td>
 				</tr>
 				<tr>
@@ -303,45 +299,45 @@ function validate() {
 						</tr>
 					</table>
 					</td>
-				</tr> 
-								
+				</tr>
+
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				</table>
 				<table border="0" width="370">
-				
+
 				<tr>
 					<td valign="top" colspan="1" style="border-bottom: 1px solid #ddd; ">Hours:</td><td style="border-bottom: 1px solid #ddd; ">Winter/Fall</td><td style="border-bottom: 1px solid #ddd; ">Spring/Summer</td>
 				</tr>
 				<tr>
 					<td style="padding-top: 5px;">Sun:</td><td style="padding-top: 5px;"><input type="text" id="off_sun" name="off_sun" size="14" value="<?=@$_POST['off_sun']?>" ?></td><td style="padding-top: 5px;"><input type="text" id="peak_sun" name="peak_sun" size="14" value="<?=@$_POST['peak_sun']?>" /></td>
 				</tr>
-				
+
 				<tr>
 				<td >Mon:</td><td ><input type="text" id="off_mon" name="off_mon" size="14" value="<?=@$_POST['off_mon']?>" ?></td><td ><input type="text" id="peak_mon" name="peak_mon" size="14" value="<?=@$_POST['peak_mon']?>" /></td>
 				</tr>
-				
+
 				<tr>
 				<td >Tue:</td><td ><input type="text" id="off_tue" name="off_tue" size="14" value="<?=@$_POST['off_tue']?>" ?></td><td ><input type="text" id="peak_tue" name="peak_tue" size="14" value="<?=@$_POST['peak_tue']?>" /></td>
 				</tr>
-				
+
 				<tr>
 				<td >Wed:</td><td ><input type="text" id="off_wed" name="off_wed" size="14" value="<?=@$_POST['off_wed']?>" ?></td><td ><input type="text" id="peak_wed" name="peak_wed" size="14" value="<?=@$_POST['peak_wed']?>" /></td>
 				</tr>
-				
+
 				<tr>
 				<td >Thu:</td><td ><input type="text" id="off_thu" name="off_thu" size="14" value="<?=@$_POST['off_thu']?>" ?></td><td ><input type="text" id="peak_thu" name="peak_thu" size="14" value="<?=@$_POST['peak_thu']?>" /></td>
 				</tr>
-				
+
 				<tr>
 				<td >Fri:</td><td ><input type="text" id="off_fri" name="off_fri" size="14" value="<?=@$_POST['off_fri']?>" ?></td><td ><input type="text" id="peak_fri" name="peak_fri" size="14" value="<?=@$_POST['peak_fri']?>" /></td>
 				</tr>
-				
+
 				<tr>
 				<td >Sat:</td><td ><input type="text" id="off_sat" name="off_sat" size="14" value="<?=@$_POST['off_sat']?>" ?></td><td ><input type="text" id="peak_sat" name="peak_sat" size="14" value="<?=@$_POST['peak_sat']?>" /></td>
 				</tr>
 				</table>
 				<table width="370">
-				
+
 								<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td>Thumb:</td><td><input type="file" name="grid_thumb" id="grid_thumb" size="13"/> (120px X 120px)</td>
@@ -349,10 +345,10 @@ function validate() {
 				<tr>
 					<td>Photo:</td><td><input type="file" name="grid_photo" id="grid_photo" size="13" /> (600px X 400px)</td>
 				</tr>
-				
+
 			</table>
-			
-			
+
+
 
 			</td>
 		 	<div id="latlong"></div>
@@ -361,23 +357,23 @@ function validate() {
 				<div id="map" style="width: 510px; height: 490px; border: 1px solid black;"></div>
 			<br />
 			<textarea style="width: 510px; height: 275px; font-family: 'Trebuchet MS';" name="copy" ></textarea>
-			
+
 			</td>
-				
+
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><hr noshade size="1"><input type="submit" id="add_artist_button" name="add" value="+ Add Artist" disabled="disabled"/></td>
 			</tr>
 		</table>
-		
+
 				</form>
-		
-		
-		
-		
-		
+
+
+
+
+
 		<!--content--></div>
-	
+
 	<!--container--></div>
 
 </body>

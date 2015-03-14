@@ -1,18 +1,18 @@
-<?php require_once('../inc/inc.php'); 
+<?php require_once('../inc/inc.php');
 admin_only();
 
 ///admin/artists.php //
 
 
 if (isset($_GET['delete'])) {
-	
+
 	$sql = "select * from artists where id = '$_GET[delete]'";
 	$result = mysql_query($sql);
 	$record = mysql_fetch_object($result);
-	
+
 	if ($record->grid_thumb != 'unavailable_small.jpg') { unlink("../artists/" . $record->grid_thumb); }
 	if ($record->grid_photo != 'unavailable_large.jpg') { unlink("../artists/" . $record->grid_photo); }
-	
+
 	$sql = "delete from artists where id = '$_GET[delete]'";
 	mysql_query($sql);
 	$message = "Artist Deleted Successfully";
@@ -20,7 +20,7 @@ if (isset($_GET['delete'])) {
 }
 
 if (isset($_POST['add'])) {
-	
+
 	//Check to see if thumbnail was uploaded
 	if (($_FILES['grid_thumb']['error']) == 0) {
 		//file was uploaded
@@ -28,12 +28,12 @@ if (isset($_POST['add'])) {
 			$grid_filename = $_POST['tour_number'] . "-" . time() . "_small.jpg";
 			$grid_file_location = "../artists/" . $grid_filename;
 			move_uploaded_file($_FILES['grid_thumb']['tmp_name'],$grid_file_location);
-	
+
 		} else {
 		//file was not uploaded
 			$grid_filename = "unavailable_small.jpg";
 	}
-	
+
 	//Check to see if photo was uploaded
 	if (($_FILES['grid_photo']['error']) == 0) {
 		//file was uploaded
@@ -41,45 +41,44 @@ if (isset($_POST['add'])) {
 			$photo_filename = $_POST['tour_number'] . "-" . time() . ".jpg";
 			$photo_file_location = "../artists/" . $photo_filename;
 			move_uploaded_file($_FILES['grid_photo']['tmp_name'],$photo_file_location);
-	
+
 		} else {
 		//file was not uploaded
 			$photo_filename = "unavailable_large.jpg";
 	}
-	
+
 	$copy = addslashes(($_POST['copy']));
-	
+
 	$email = '';
 	$website = '';
-	
-	
+
+
 	$opt_visa = @$_POST['visa'];
 	$opt_mc = @$_POST['mc'];
 	$opt_debit = @$_POST['debit'];
 	$opt_bathroom = @$_POST['bathroom'];
 	$opt_wheelchair = @$_POST['wheelchair'];
-	
+
 	if ($opt_visa == 'on') { $opt_visa ='y'; } else { $opt_visa = 'n'; }
 	if ($opt_mc == 'on') { $opt_mc ='y'; } else { $opt_mc = 'n'; }
 	if ($opt_debit == 'on') { $opt_debit ='y'; } else { $opt_debit = 'n'; }
 	if ($opt_bathroom == 'on') { $opt_bathroom ='y'; } else { $opt_bathroom = 'n'; }
 	if ($opt_wheelchair == 'on') { $opt_wheelchair ='y'; } else { $opt_wheelchair = 'n'; }
-	
-	
-	
+
+
+
 	$postal_code = $_POST['postal_code'];
 
 	$name = addslashes(htmlentities($_POST['name']));
 	$artist = addslashes(htmlentities($_POST['artist']));
 	$craft = addslashes(htmlentities($_POST['craft']));
-	$blurb = addslashes(htmlentities($_POST['blurb']));
 		$address = htmlentities($_POST['address']);
 		$address = addslashes($address);
 	$phone = htmlentities($_POST['phone']);
 	$email = htmlentities(@$_POST['email']);
 	$website = htmlentities(@$_POST['website']);
-	
-	
+
+
 	$off_sun = htmlentities($_POST['off_sun']);
 	$off_mon = htmlentities($_POST['off_mon']);
 	$off_tue = htmlentities($_POST['off_tue']);
@@ -87,9 +86,9 @@ if (isset($_POST['add'])) {
 	$off_thu = htmlentities($_POST['off_thu']);
 	$off_fri = htmlentities($_POST['off_fri']);
 	$off_sat = htmlentities($_POST['off_sat']);
-	
-	
-	
+
+
+
 	$peak_sun = htmlentities($_POST['peak_sun']);
 	$peak_mon = htmlentities($_POST['peak_mon']);
 	$peak_tue = htmlentities($_POST['peak_tue']);
@@ -100,22 +99,21 @@ if (isset($_POST['add'])) {
 
 	$lat = $_POST['lat'];
 	$lng = $_POST['lng'];
-	
+
 	if ($_POST['lat'] == '') { $lat = "48.825235"; }
 	if ($_POST['lng'] == '') { $lng = "-123.492165"; }
-	
+
 
 	$tour_number = $_POST['tour_number'];
 	$view_order = $tour_number;
-	
-	
-	$sql = "insert into artists (view_order,tour_number,name,artist,craft,blurb,address,phone,email,website,opt_visa,opt_mc,opt_debit,opt_bathroom,opt_wheelchair,off_sun,off_mon,off_tue,off_wed,off_thu,off_fri,off_sat,peak_sun,peak_mon,peak_tue,peak_wed,peak_thu,peak_fri,peak_sat,grid_thumb,grid_photo,copy,postal_code,lat,lng) values 
+
+
+	$sql = "insert into artists (view_order,tour_number,name,artist,craft,address,phone,email,website,opt_visa,opt_mc,opt_debit,opt_bathroom,opt_wheelchair,off_sun,off_mon,off_tue,off_wed,off_thu,off_fri,off_sat,peak_sun,peak_mon,peak_tue,peak_wed,peak_thu,peak_fri,peak_sat,grid_thumb,grid_photo,copy,postal_code,lat,lng) values
 			('$view_order',
 			 '$tour_number',
 			 '$name',
 			 '$artist',
-			 '$craft',
-			 '$blurb',
+			 '$craft'
 			 '$address',
 			 '$phone',
 			 '$email',
@@ -147,7 +145,7 @@ if (isset($_POST['add'])) {
 			 '$lng')";
  	mysql_query($sql) or die(mysql_error());
 	$message = "New Artist Added Successfully";
-			 
+
 }
 
 
@@ -177,7 +175,7 @@ Event.observe(window,'load',init,false);
 			location.replace('artists.php');
 		<?php } ?>
 	  	Sortable.create('dispatchlist',{tag:'div',constraint: false, onUpdate:updateList});
-			
+
 		}
 		function updateList(container) {
 			var url = 'ajax_artists.php';
@@ -187,10 +185,10 @@ Event.observe(window,'load',init,false);
 				parameters: params
 			});
 		}
-		
+
 Ajax.Responders.register({
 onCreate : showLoader,
-onComplete : hideLoader			
+onComplete : hideLoader
 });
 
 
@@ -208,7 +206,7 @@ function showLoader() {
 					$('loader').style.backgroundColor = '#0b0';
 		$('loader').innerHTML = 'Done!';
 		}
-		
+
 function hideLoader() {
 
 
@@ -222,47 +220,47 @@ function hideLoader() {
 	<div id="container">
 	<div id="loader" style="display: none;">Working...</div>
 	<?php require_once('menu.php'); ?>
-	
+
 		<div id="content" >
 		<h4 class="message"><?php if (isset($message)) { echo $message; } ?></h4>
-		
-			
+
+
 		<h3>Studio Tour Artists</h3>
 		<a href="add_artist.php">Click here to add artist</a>
 		<br />
 		<br />
 				<hr noshade size="1"  align="center">
-		
+
 		<?php if (mysql_num_rows($result) < 1) { ?>
 		No artists yet.
 		<?php } else { ?>
 		<div id="dispatchlist">
-		<?php 
+		<?php
 		while ($record = mysql_fetch_assoc($result)) {
 			?>
 			<div class="drag_image" id="item_<?=$record['id'];?>">
 			<div class="tour_number"><?=$record['tour_number'];?></div>
-			
-			
+
+
 				<img src="../artists/<?=$record['grid_thumb'];?>" width="120" height="120" style="border: 1px solid #a00; margin-top: 12px;">
 				<br /><a class="edit" href="edit_artist.php?id=<?=$record['id'];?>"><p style="font-size: 10px; display: block; margin-top: 10px;"><?=stripslashes($record['name']);?></span></a>
 				<a style="position: absolute; bottom: 0; left: 0; background-color: #ff0; width: 100%; display: block; border-top: 1px solid #a00;"href="artists.php?delete=<?=$record['id'];?>" onclick="return confirm('Are you sure you want to delete that artist? THERE IS NO UNDO FOR THIS OPERATION!');"><span class="redText">Delete Artist<span></a>
-			
+
 			</div>
-		<?php } 
-		
+		<?php }
+
 		?>
 		<div style="clear: both;"></div>
 		</div>
 		<br /><br />
 		<hr noshade size="1"  align="center">
-		
-		
+
+
 		<?php } ?>
-		
-		
+
+
 		<!--content--></div>
-	
+
 	<!--container--></div>
 
 </body>

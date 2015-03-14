@@ -25,7 +25,7 @@ $options = mysql_query($sql);
 
 
 function myclick(k) {
-	
+
       			map2.setZoom(12);
       	      	map2.panTo(ext_markers[k].getLatLng());
         		GEvent.trigger(ext_markers[k], "click");
@@ -35,7 +35,7 @@ $(function() {
  startMap();
  	$("#artist_list_submit").hide();
  	$("#artist_list").msDropDown();
- 	
+
  				$("a[rel^='prettyPhoto']").prettyPhoto();
 });
 
@@ -60,13 +60,13 @@ function goToUrl(id) {
 			<?php require_once("inc/menu.php"); ?>
 			<!--menu--></div>
 		<!--header--></div>
-	
-	
-		
+
+
+
 		<div id="content">
-		
+
 		<div id="map_detail">
-		
+
 			<img src="images/mapbook4.jpg" alt="Map Book" id="mapbook" />
 			<a href="pdf/StudioTour2014.pdf" target="_blank">Download Map PDF (2.4MB)</a>
 			<br />
@@ -81,14 +81,14 @@ function goToUrl(id) {
 				<li>Bed & Breakfasts</li>
 				<li>and many other convenient locations</li>
 			</ul>
-				
+
 		<!--map_detail--></div>
 		<div id="dropdown">
 		<form name="gotoArtist" method="get" action="view.php">
 		<select name="artist" id="artist_list" style="width: 100%" onchange="myclick(this.value);">
 			<option value="false">Click on a sheep below or select a studio from this list...</option>
 			<?php while ($r = mysql_fetch_assoc($options)) { ?>
-			<option title="images/sheep/<?=$r['tour_number']?>.png" value="<?=$r['tour_number']?>"> &nbsp;&nbsp;&nbsp;<?=stripslashes($r['name'])?> &mdash; <?=stripslashes($r['blurb']); ?></option>
+			<option title="images/sheep/<?=$r['tour_number']?>.png" value="<?=$r['tour_number']?>"> &nbsp;&nbsp;&nbsp;<?=stripslashes($r['name'])?> &mdash; ?></option>
 			<?php } ?>
 		</select><input type="submit" id="artist_list_submit" name="submit" value="Meet the Artist" style="display: inline;" />
 	</form>
@@ -99,12 +99,12 @@ function goToUrl(id) {
 				<a href="largemap.php?iframe=true&width=100%&height=100%" rel="prettyPhoto" target="_blank"><img src="images/zoom.gif" id="zoom_icon" alt="Larger Map" /></a><a href="largemap.php?iframe=true&width=100%&height=100%" rel="prettyPhoto" target="_blank">Larger Map</a>
 				</div>
 		</div>
-		
-		
-		
+
+
+
 		<!--content--></div>
-		
-	
+
+
 	<!--container--></div>
 <!--wrap--></div>
 

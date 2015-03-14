@@ -39,12 +39,12 @@ $("#artist_list").msDropDown();
 							$(this).fadeTo(200,0.7);
 						}
 	).tipTip({
-	
+
 				delay: 00,
 				fadeIn: 200,
 				fadeOut: 200
-		
-		});	
+
+		});
 	$(".zoom").fancybox({
 				titlePosition			: 'outside',
 				padding					: 10,
@@ -57,10 +57,10 @@ $("#artist_list").msDropDown();
 				overlayOpacity			: .5,
 				overlayColor			: "#000",
 				hideOnContentClick		: false,
-				changeSpeed				:300,	
+				changeSpeed				:300,
 				changeFade 				:0,
 				autoScale				: false
-				
+
 			});
 
 
@@ -89,9 +89,9 @@ $(window).load(function () {
 			<?php require_once("inc/menu.php"); ?>
 			<!--menu--></div>
 		<!--header--></div>
-	
-	
-		
+
+
+
 		<div id="content">
 <div id="artist_center_dropdown">
 <div id="artist_center_dropdown_inner">
@@ -99,7 +99,7 @@ $(window).load(function () {
 		<select name="artist" id="artist_list" style="width: 600px;" onchange="goToUrl(this.value);">
 			<option value="false">Click on an artist below or select a studio from this list...</option>
 			<?php while ($r = mysql_fetch_assoc($options)) { ?>
-			<option title="images/sheep/<?=$r['tour_number']?>.png" value="<?=$r['id']?>"> &nbsp;&nbsp;&nbsp;<?=stripslashes($r['name'])?> &mdash; <?=stripslashes($r['blurb']); ?></option>
+			<option title="images/sheep/<?=$r['tour_number']?>.png" value="<?=$r['id']?>"> &nbsp;&nbsp;&nbsp;<?=stripslashes($r['name'])?></option>
 			<?php } ?>
 		</select><input type="submit" id="artist_list_submit" name="submit" value="Meet the Artist" style="display: inline;" />
 						<div style="clear: both;"></div>
@@ -108,10 +108,10 @@ $(window).load(function () {
 </div>
 
 
-		
+
 			<div id="homegrid">
 				<div id="grid">
-				<?php 
+				<?php
 				 while ($record = mysql_fetch_assoc($result)) {
 				?>
 				<a class="zoom" href="#data_<?=$record['id'];?>" rel="gal" ><img src="artists/<?=$record['grid_thumb']?>" title="<?=$record['name']?>" class="homegrid_image pgrid"  width="120" height="120" alt="" /></a>
@@ -119,12 +119,12 @@ $(window).load(function () {
 					<div class="clear"></div>
 				<!--grid--></div>
 			<!--homegrid--></div>
-		
-		
+
+
 		<!--content--></div>
-		
+
 		<div style="display: none;">
-		<?php 
+		<?php
 		mysql_data_seek($result,0);
 		while ($record = mysql_fetch_assoc($result)) { ?>
 			<div class="artist_zoomBox" id="data_<?=$record['id'];?>">
@@ -132,13 +132,13 @@ $(window).load(function () {
 				<img src="artists/<?=$record['grid_photo'];?>" class="gridphoto" alt="Artist Photo" />
 			<img src='images/sheep/<?=$record['tour_number']?>.png' class='floatLeft' /><div class='floatLeft'><div class='zoomTitle'><?=stripslashes($record['name'])?></div><div class='zoom_craft'><?=stripslashes($record['craft'])?></div></div><a href='view.php?artist=<?=$record['id'];?>'><img src='images/meetsmall.jpg' alt='Click for more...' class='floatRight' style="z-index: 31000;"/></a><div style="clear: both;"></div>
 			<!--data_<?=$record['id'];?>--></div>
-			
-			
+
+
 			<?php } ?>
-		
+
 		</div>
-		
-	
+
+
 	<!--container--></div>
 <!--wrap--></div>
 
